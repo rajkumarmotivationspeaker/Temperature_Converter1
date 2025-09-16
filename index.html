@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            background: #f5f5f5;
+            background-image: url(https://watermark.lovepik.com/photo/40030/4638.jpg_wh1200.jpg);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 40px;
+            text-shadow: 5px 1px 2px rgb(255, 255, 255);
+        }
+
+        .continer {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            text-align: center;
+            background-color: blueviolet;
+            padding: 40px 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+            border: 5px double rgb(255, 255, 255);
+            background-image: url(https://i.pinimg.com/originals/bd/72/d1/bd72d10c741dde2ce2684577ffa0d86f.gif);
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        .cel {
+            display: block;
+            margin-bottom: 30px;
+        }
+
+        .inp {
+            width: 100%;
+            max-width: 300px;
+            height: 50px;
+            margin: 10px auto;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            display: block;
+            background-color: transparent;
+            color: white;
+            border: 3px solid rgb(255, 170, 0);
+        }
+
+        .developer {
+            text-align: center;
+            color: rgb(0, 21, 253);
+            font-weight: bold;
+            font-size: 18px;
+            text-shadow: 5px 3px 5px white;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+
+            .continer {
+                padding: 20px 5px;
+                max-width: 95vw;
+            }
+
+            .inp {
+                font-size: 22px;
+                height: 40px;
+                max-width: 95vw;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            label {
+                font-size: 22px;
+            }
+        }
+
+        label {
+            font-size: 30px;
+            font-weight: bold;
+            color: rgb(255, 170, 0);
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+    <main>
+        <h1>Temperature Converter</h1>
+
+        <div class="continer">
+
+            <div class="cel">
+                <label>Celsius</label><br>
+                <input type="number" class="inp" id="cel" value="0">
+            </div>
+
+            <div class="cel">
+                <label>Fahrenheit</label><br>
+                <input type="number" class="inp" id="fer" value="32">
+            </div>
+        </div>
+        <p class="developer">Created By Raaz With ❤️</p>
+    </main>
+
+    <script>
+
+        var cel = document.getElementById("cel")
+        var fer = document.getElementById("fer")
+
+        cel.addEventListener('input', celchange)
+        fer.addEventListener('input', ferchange)
+
+
+        function celchange() {
+
+            let c = cel.value
+            let f = (c * 1.8) + 32;
+
+            fer.value = Number(f).toFixed(4)   // sikhne wali baate 
+
+            // this coding for if cel input value is empty then fer input also empty
+            if (cel.value === "") {
+                fer.value = ""
+            }
+        }
+
+        function ferchange() {
+
+            let f = fer.value
+            let c = (f - 32) * 5 / 9;
+
+            cel.value = Number(c).toFixed(4)
+
+            // this coding for if fer input value is empty then cel input also empty
+            if (fer.value === "") {
+                cel.value = ""
+            }
+        }
+
+    </script>
+</body>
+
+</html>
